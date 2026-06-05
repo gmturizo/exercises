@@ -1,24 +1,24 @@
 package com.coursemicroservices.exercises.ejercicio1;
 
-public class Producto implements Pagable, Serializable{
+public class Producto implements Pagable, Serializable {
 
     private String nombre;
     private double precio;
     private int cantidad;
 
-    public Producto(String nombre, double precio, int cantidad){
+    public Producto(String nombre, double precio, int cantidad) {
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }
 
-    public double calcularTotal() {
-        return this.precio * (double)this.cantidad;
-        
+    public double calcularPago() {
+        return this.precio * (double) this.cantidad;
+
     }
 
-    public double aplicarDescuento(double porcentaje){
-        double total = calcularTotal();
+    public double aplicarDescuento(double porcentaje) {
+        double total = calcularPago();
         return total - (total * porcentaje / 100);
     }
 
@@ -26,27 +26,21 @@ public class Producto implements Pagable, Serializable{
         return String.format("Producto: %s | Precio: $%.2f | Cantidad: %d", this.nombre, this.precio, this.cantidad);
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return this.nombre;
     }
 
-    public double getPrecio(){
+    public double getPrecio() {
         return this.precio;
     }
 
-    public String toString(){
+    public String toString() {
         return this.descripcion();
     }
 
     @Override
     public String Serializable() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Serializable'");
+        return "PRODUCTO;" + this.nombre + ";" + this.precio + ";" + this.cantidad;
     }
 
-    @Override
-    public double calcularPago() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'calcularPago'");
-    }
 }
